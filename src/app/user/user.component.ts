@@ -10,6 +10,8 @@ import { User } from 'src/app/User';
 export class UserComponent implements OnInit {
 
   private users:User[];
+  private selectedUser:User;
+  private visible:boolean = true;
 
   private filterUserName:string;
   private quantity:number = 1;
@@ -19,7 +21,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log('came insdie the ng On init method')
     this.userService.getAllUsers()
-     .subscribe(users => this.users = users);
+     .subscribe(users =>  this.users = users )
   }
 
   increment(){
@@ -30,7 +32,11 @@ export class UserComponent implements OnInit {
     if (this.quantity > 1){
       this.quantity --;
     }
-    
- }
+  }
 
+  handleClick(user){
+    console.log(user);
+   this.selectedUser = user;
+   this.quantity = 1;
+  }
 }

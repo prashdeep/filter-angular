@@ -1,17 +1,45 @@
-<div class="row">
-  <div class="col-md-6">
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" [(ngModel)]="filterUserName" placeholder="user name">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="filterUserName" placeholder="user name">
+      </div>
     </div>
   </div>
-</div>
-{{filterUserName}}
-<div class="row">
-  <div class="card" style="width: 18rem;" *ngFor="let user of users | filterUser:filterUserName">
-    <div class="card-body">
-      <h5 class="card-title">{{user.username}}</h5>
-      <p class="card-text">{{user.email}}</p>
-      <button  *ngIf="quantity > 1" (click)="decrement()">Decrement</button><input type="text" [(ngModel)]="quantity"><button (click)="increment()">Increment</button>
+  <div class="row">
+    <div class="card col-md-12">
+      <div class="card-header bg-primary" 
+           (click)="visible = !visible" 
+           style="color:white"> <i [class]="!visible? 'fa fa-plus-circle': 'fa fa-minus-circle'"></i> Available Menus</div>
+      <div class="card-body" *ngIf="visible" >
+        <div class="row">
+          <div class="card" (click)="handleClick(user)"  *ngFor="let user of users | filterUser:filterUserName as result">
+            <div class="card-header bg-success">{{user.username}}</div>
+            <div class="card-body">
+              <p class="card-text">{{user.email}}</p>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <div class="row" *ngIf="selectedUser">
+    <div class="card">
+      <div class="card-header bg-success" style="color:white">Selected Menus</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="card" col="col-md-4" >
+            <div class="card-body">
+              <h5 class="card-title">{{selectedUser.username}}</h5>
+              <p class="card-text">{{selectedUser.email}}</p>
+              &nbsp;<i class="fa fa-minus-circle fa" *ngIf="quantity > 1" (click)="decrement()"></i>
+              &nbsp;<input type="text" [(ngModel)]="quantity">
+              &nbsp;<i class="fa fa-plus-circle fa" (click)="increment()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
