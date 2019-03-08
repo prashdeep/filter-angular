@@ -14,7 +14,7 @@
       <div class="card-body" *ngIf="visible" >
         <div class="row">
           <div class="card" (click)="handleClick(user)"  *ngFor="let user of users | filterUser:filterUserName as result">
-            <div class="card-header bg-success">{{user.username}}</div>
+            <div [class]='user.username === selectedUser?.username?"card-header bg-success fa fa-check-circle":"card-header bg-primary"'> {{user.username}}</div>
             <div class="card-body">
               <p class="card-text">{{user.email}}</p>
             </div>
@@ -26,7 +26,7 @@
 
   <div class="row" *ngIf="selectedUser">
     <div class="card">
-      <div class="card-header bg-success" style="color:white">Selected Menus</div>
+      <div class="card-header bg-success" style="color:white">Cart</div>
       <div class="card-body">
         <div class="row">
           <div class="card" col="col-md-4" >
