@@ -1,0 +1,7 @@
+
+<div *ngIf="display; else elseBlock">Text to be displayed</div>
+<div>
+<ng-template #elseBlock> this will be displayed in case of false</ng-template>
+</div>
+
+<button class="btn btn-warning" (click)="onClick()">Toggle</button>

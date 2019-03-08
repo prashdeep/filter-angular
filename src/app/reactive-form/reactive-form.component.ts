@@ -9,8 +9,9 @@ import { Validators } from '@angular/forms';
 })
 export class ReactiveFormComponent {
 
-    form=new FormGroup({
-        username: new FormControl('', Validators.required),
+    form = new FormGroup(
+      {
+        username: new FormControl('', [Validators.required, Validators.minLength(4)]),
         password: new FormControl('', Validators.required)
       }
     )

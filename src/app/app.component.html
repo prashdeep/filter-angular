@@ -1,5 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="container">
-  <app-reactive-form></app-reactive-form>
+<div class="container" style="background-color:red">
+  <app-parent [user]='loggedInUser' (test)='changehandle()'></app-parent>
+  <!--<app-ifelse ></app-ifelse>-->
+  <!--<app-reactive-form></app-reactive-form>-->
 </div>
 

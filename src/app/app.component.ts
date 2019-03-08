@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'filter-demo';
+  loggedInUser = "Vinay";
+
+  changehandle(){
+    console.log('came inside the change handle method')
+  }
 }

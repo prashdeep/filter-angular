@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { FilterUserPipe } from './filter-user.pipe';
 import { ReactiveFormComponent } from 'src/app/reactive-form/reactive-form.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
+import { IfelseComponent } from './ifelse/ifelse.component';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import { ReactiveFormComponent } from 'src/app/reactive-form/reactive-form.compo
     AppComponent,
     UserComponent,
     FilterUserPipe,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ParentComponent,
+    ChildComponent,
+    IfelseComponent
   ],
   imports: [
     BrowserModule,
